@@ -1,4 +1,7 @@
 #!/bin/bash
+echo
+echo "--------- START ----------"
+
 branch=$GIT_BRANCH
 working_copy=$WORKSPACE
 
@@ -16,5 +19,8 @@ else
     stage="test"
 fi
 
-echo "stage=$stage"
-echo "test.sh hehe $working_copy"
+echo
+echo "\nstage=$stage"
+
+echo
+echo "$GIT_COMMIT"
