@@ -23,4 +23,4 @@ echo
 echo "stage=$stage"
 
 echo
-echo "$NODE_NAME"
+echo git diff $GIT_COMMIT $GIT_PREVIOUS_COMMIT --name-only
