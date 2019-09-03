@@ -9,7 +9,7 @@ then
 elif [$branch="origin/staging"] 
 then
     stage="staging"
-elif [$branch)="origin/release"] 
+elif [$branch="origin/release"] 
 then
     stage="release"
 fi
