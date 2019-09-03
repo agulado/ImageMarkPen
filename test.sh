@@ -3,11 +3,11 @@ branch=$GIT_BRANCH
 working_copy=$WORKSPACE
 
 stage="test"
-if("$branch"="origin/master")
+if ["$branch"="origin/master"]
     stage="test"
-else if("$branch"="origin/staging")
-    stage="stage"
-else if("$branch")="origin/release")
+elif["$branch"="origin/staging"]
+    stage="staging"
+elif["$branch")="origin/release"]
     stage="release"
 fi
 
