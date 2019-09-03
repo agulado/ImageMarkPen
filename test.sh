@@ -20,7 +20,7 @@ else
 fi
 
 echo
-echo "\nstage=$stage"
+echo "stage=$stage"
 
 echo
-echo "$GIT_COMMIT"
+echo "$NODE_NAME"
