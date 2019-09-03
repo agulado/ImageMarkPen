@@ -23,4 +23,6 @@ echo
 echo "stage=$stage"
 
 echo
-echo `git diff $GIT_COMMIT $GIT_PREVIOUS_COMMIT --name-only`
+echo `git diff $GIT_COMMIT $GIT_PREVIOUS_COMMIT`
+
+echo
