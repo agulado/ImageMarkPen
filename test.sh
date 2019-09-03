@@ -2,7 +2,7 @@
 branch=$GIT_BRANCH
 working_copy=$WORKSPACE
 
-stage="test"
+stage="hahaha"
 if [ "$branch" == "origin/master" ]
 then
     stage="test"
@@ -12,6 +12,8 @@ then
 elif [ "$branch" == "origin/release" ]
 then
     stage="release"
+else
+    stage="test"
 fi
 
 echo "stage=$stage"
