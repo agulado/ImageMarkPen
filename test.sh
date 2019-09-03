@@ -1,4 +1,5 @@
 #!/bin/bash
-stage=$1
-echo $1
-echo "test.sh hehe $WORKSPACE"
+branch=$GIT_BRANCH
+working_copy=$WORKSPACE
+echo $branch
+echo "test.sh hehe $working_copy"
