@@ -39,12 +39,19 @@ function dealPath(){
     echo "--------- COMMIT FILE_PATHS ----------"
 
     arr=($*)
-    directory_level=0
     compile_arr=()
     ext_js=("js")
     ext_css=("css")
     ext_img=("png","jpg","gif","svg")
     ext_view=("html")
+    directory_level_js=0
+    directory_level_css=0
+    directory_level_img=0
+    directory_level_view=0
+    compile_arr_js=()
+    compile_arr_css=()
+    compile_arr_img=()
+    compile_arr_view=()
     for path in ${arr[@]}
     do
         echo
@@ -53,13 +60,22 @@ function dealPath(){
         # 获得文件类型
         ext_arr=(${path//./ })
         file_type=""
+        ext=${ext_arr[$[ ${#ext_arr[@]}-1 ]]}
 
-        if echo "${ext_view[@]}" | grep -iw ${ext_arr[$[ ${#ext_arr[@]}-1 ]]}; then
+        if echo "${ext_view[@]}" | grep -iw $ext; then
             file_type="view"
+        elif echo "${ext_js[@]}" | grep -iw $ext; then
+            file_type="js" 
+        elif echo "${ext_css[@]}" | grep -iw $ext; then
+            file_type="css" 
+        elif echo "${ext_img[@]}" | grep -iw $ext; then
+            file_type="img" 
         else
             # 非指定文件类型则跳过
             continue
         fi
+
+        echo $file_type
 
         _arr=(${path//\// })
 
