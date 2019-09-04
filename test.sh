@@ -22,7 +22,9 @@ fi
 echo "stage=$stage"
 
 echo
-diff_files=`git diff $GIT_COMMIT $GIT_PREVIOUS_COMMIT --name-only $1`
-echo $diff_files
+function dealPath(){
+    echo $1
+}
+`git diff $GIT_COMMIT $GIT_PREVIOUS_COMMIT --name-only $1 | xargs -n dealPath {}`
 
 echo
