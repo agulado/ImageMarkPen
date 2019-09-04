@@ -79,9 +79,29 @@ function dealPath(){
 
         _arr=(${path//\// })
 
-        echo "55 _arr.length=" ${#_arr[@]}
+        echo "82 _arr.length=" ${#_arr[@]}
+        `echo "83:" \$directory_level_$file_type`
+        continue;
+        
+        # case $file_type in
+        #     "view")
+        #         directory_level=$directory_level_view
+        #         ;;
+        #     "js")
+        #         directory_level=$directory_level_js
+        #         ;;
+        #     "css")
+        #         directory_level=$directory_level_css
+        #         ;;
+        #     "img")
+        #         directory_level=$directory_level_img
+        #         ;;
+        #     *)
+        #         directory_level=0
+        #         ;;
+        # esac
 
-        if [ ${#_arr[@]} \< $directory_level -o $directory_level == 0 ]; then
+        if [[ ${#_arr[@]} < $directory_level -o $directory_level == 0 ]]; then
             directory_level=${#_arr[@]}
             compile_dir=$(combineDir "$path")
             echo "59: compile_dir=" ${compile_dir}
