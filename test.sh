@@ -47,7 +47,8 @@ function dealPath(){
         echo "41 path=" $path
 
         ext_arr=(${path//./ })
-        echo "50 ext=" ${ext_arr[${#ext_arr[@]}]}
+        echo "50 ext.length=" ${#ext_arr[@]}
+        echo "50 ext=" ${ext_arr[$[ ${#ext_arr[@]}+1 ]]}
 
         _arr=(${path//\// })
 
