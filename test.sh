@@ -53,7 +53,7 @@ function dealPath(){
         ext_arr=(${path//./ })
 
         echo "56"
-        echo "${ext_view[@]}" | xargs
+        echo "${ext_view[@]}" | grep -iw ${ext_arr[$[ ${#ext_arr[@]}-1 ]]} | xargs
         echo
 
         _arr=(${path//\// })
