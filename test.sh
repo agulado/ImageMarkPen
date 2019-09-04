@@ -23,6 +23,7 @@ function combineDir(){
 
     _arr=(${arr//\// })
     _arr_max=${#_arr[@]}-1
+    echo "26 _arr_max=" $_arr_max
     directory=""
     for i in ${!_arr[@]}
     do
@@ -31,7 +32,7 @@ function combineDir(){
         fi
     done
 
-    echo $directory
+    # echo $directory
 }
 
 function dealPath(){
