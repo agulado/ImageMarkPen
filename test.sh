@@ -46,7 +46,8 @@ function dealPath(){
 
         if [ ${#_arr[@]} \< $directory_level -o $directory_level == 0 ];then
             directory_level=${#_arr[@]}
-            compile_arr=(${combineDir $path})
+            compile_dir=combineDir $path
+            compile_arr=(compile_dir)
         fi
 
     done
