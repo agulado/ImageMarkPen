@@ -25,7 +25,7 @@ echo
 function dealPath(){
     echo '26: $*';
 }
-if ["$1"=="dealPath"]; then
+if [ "$1" == "dealPath" ]; then
     shift
     dealPath $*
     exit 0
