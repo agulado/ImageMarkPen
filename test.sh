@@ -81,6 +81,7 @@ function dealPath(){
 
         echo "82 _arr.length=" ${#_arr[@]}
         $("echo \$directory_level_" + $file_type) 
+        
 
         continue;
         
