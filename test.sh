@@ -29,7 +29,7 @@ function combineDir(){
         fi
     done
 
-    # echo $directory
+    echo $directory
 }
 
 function dealPath(){
