@@ -101,7 +101,7 @@ function dealPath(){
         #         ;;
         # esac
 
-        if [[ ${#_arr[@]} < $directory_level -o $directory_level == 0 ]]; then
+        if [[ ${#_arr[@]} < $directory_level || $directory_level == 0 ]]; then
             directory_level=${#_arr[@]}
             compile_dir=$(combineDir "$path")
             echo "59: compile_dir=" ${compile_dir}
