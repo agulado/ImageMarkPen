@@ -21,15 +21,17 @@ function combineDir(){
 
     echo 22 $1
 
-    _arr=(${$1//\// })
-    directory="/"
-    for i in ${!_arr[@]}
-    do
-        echo "28" $i
-    done
-    # directory+="/"
+    return $1
 
-    return $directory
+    # _arr=(${$1//\// })
+    # directory="/"
+    # for i in ${!_arr[@]}
+    # do
+    #     echo "28" $i
+    # done
+    # # directory+="/"
+
+    # return $directory
 }
 
 function dealPath(){
