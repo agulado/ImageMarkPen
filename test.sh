@@ -41,6 +41,10 @@ function dealPath(){
     arr=($*)
     directory_level=0
     compile_arr=()
+    ext_js=("js")
+    ext_css=("css")
+    ext_img=("png","jpg","gif","svg")
+    ext_view=("html")
     for path in ${arr[@]}
     do
         echo
@@ -51,11 +55,14 @@ function dealPath(){
         ext=${ext_arr[$[ ${#ext_arr[@]}-1 ]]}
         echo "50 ext=" $ext
 
+        echo ${ext_view[@]} | grep -w $ext
+        echo
+
         _arr=(${path//\// })
 
         echo "55 _arr.length=" ${#_arr[@]}
 
-        if [ ${#_arr[@]} \< $directory_level -o $directory_level == 0 ];then
+        if [ ${#_arr[@]} \< $directory_level -o $directory_level == 0 ]; then
             directory_level=${#_arr[@]}
             compile_dir=$(combineDir "$path")
             echo "59: compile_dir=" ${compile_dir}
