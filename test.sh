@@ -19,12 +19,17 @@ fi
 
 function combineDir(){
 
+    echo 22 $1
+
+    _arr=(${$1//\// })
     directory="/"
-    for i in ${!$1[@]}
+    for i in ${!_arr[@]}
     do
         echo "28" $i
     done
     # directory+="/"
+
+    return $directory
 }
 
 function dealPath(){
@@ -46,9 +51,11 @@ function dealPath(){
 
         if [ ${#_arr[@]} \< $directory_level -o $directory_level == 0 ];then
             directory_level=${#_arr[@]}
-            compile_dir=$(combineDir "$_arr") 
-            compile_arr=(compile_dir) 
+            compile_dir=$(combineDir "$path") 
+            compile_arr=(compile_dir)
         fi
+
+        echo "58: compile_arr=" ${compile_arr[@]}
 
     done
 }
