@@ -50,12 +50,14 @@ function dealPath(){
         echo
         echo "41 path=" $path
 
+        # 获得文件类型
         ext_arr=(${path//./ })
         file_type=""
 
         if echo "${ext_view[@]}" | grep -iw ${ext_arr[$[ ${#ext_arr[@]}-1 ]]}; then
             file_type="view"
         else
+            # 非指定文件类型则跳过
             continue
         fi
 
