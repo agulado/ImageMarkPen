@@ -46,18 +46,21 @@ function dealPath(){
         echo
         echo "41 path=" $path
 
+        ext=${(${path//./ })[@]}
+        echo "50 ext=" $ext
+
         _arr=(${path//\// })
 
-        echo "45 _arr.length=" ${#_arr[@]}
+        echo "55 _arr.length=" ${#_arr[@]}
 
         if [ ${#_arr[@]} \< $directory_level -o $directory_level == 0 ];then
             directory_level=${#_arr[@]}
             compile_dir=$(combineDir "$path")
-            echo "56: compile_dir=" ${compile_dir}
+            echo "59: compile_dir=" ${compile_dir}
             compile_arr=($compile_dir)
         fi
 
-        echo "60: compile_arr=" ${compile_arr[@]}
+        echo "62: compile_arr=" ${compile_arr[@]}
 
     done
 }
