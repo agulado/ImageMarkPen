@@ -43,6 +43,7 @@ function dealPath(){
     compile_arr=()
     for path in ${arr[@]}
     do
+        echo
         echo "41 path=" $path
 
         _arr=(${path//\// })
