@@ -23,8 +23,8 @@ echo "stage=$stage"
 
 echo
 function dealPath(){
-    echo '26: $1';
+    echo '26: $*';
 }
-git diff $GIT_COMMIT $GIT_PREVIOUS_COMMIT --name-only $1 | xargs dealPath {}
+git diff $GIT_COMMIT $GIT_PREVIOUS_COMMIT --name-only $1 | xargs -t dealPath
 
 echo
