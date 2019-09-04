@@ -22,10 +22,11 @@ function combineDir(){
     arr=$1
 
     _arr=(${arr//\// })
+    _arr_max=${#_arr[@]}-1
     directory=""
     for i in ${!_arr[@]}
     do
-        if [ $i \< `${#_arr[@]}-1`]; then
+        if [[ $i < _arr_max]]; then
             directory+="${_arr[i]}/"
         fi
     done
