@@ -25,11 +25,10 @@ function combineDir(){
     directory="/"
     for i in ${!_arr[@]}
     do
-        if [ $i \< (${#_arr[@]}-1) ]; then
-            directory+=${_arr[i]}
+        if [ $i \< ${#_arr[@]}-1 ]; then
+            directory+="${_arr[i]}\/"
         fi
     done
-    # directory+="/"
 
     echo $directory
 }
