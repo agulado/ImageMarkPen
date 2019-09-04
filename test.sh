@@ -19,19 +19,19 @@ fi
 
 function combineDir(){
 
-    echo "22: \$1=" $1
-
     arr=$1
 
     _arr=(${arr//\// })
     directory="/"
     for i in ${!_arr[@]}
     do
-        echo "28: \$i= " $i
+        if [ $i \< (${#_arr[@]}-1) ]; then
+            directory+=${_arr[i]}
+        fi
     done
     # directory+="/"
 
-    $directory
+    echo $directory
 }
 
 function dealPath(){
