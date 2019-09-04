@@ -17,18 +17,19 @@ else
     stage="test"
 fi
 
-echo "stage=$stage"
-
-echo
 function dealPath(){
 
     echo
+    echo "--------- STAGE: $stage ---------"
     echo "--------- COMMIT FILE_PATHS ----------"
 
     arr=($*)
     for path in ${arr[@]}
     do
         echo $path
+
+        _arr=(${path//\// })
+        echo $_arr
     done
 }
 if [[ $1 == "dealPath" ]]; then
