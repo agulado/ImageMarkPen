@@ -22,7 +22,7 @@ fi
 echo "stage=$stage"
 
 echo
-diff_files=`git diff $GIT_COMMIT $GIT_PREVIOUS_COMMIT --name-only $1`
+diff_files=`git diff $GIT_COMMIT $GIT_PREVIOUS_COMMIT --name-only -z $1`
 echo $diff_files
 
 echo
