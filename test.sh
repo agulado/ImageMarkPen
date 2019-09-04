@@ -53,7 +53,7 @@ function dealPath(){
         ext_arr=(${path//./ })
 
         echo "56"
-        "${ext_view[@]}" | xargs
+        echo "${ext_view[@]}" | xargs
         echo
 
         _arr=(${path//\// })
