@@ -19,7 +19,7 @@ fi
 
 function combineDir(){
 
-    echo 22 $1
+    echo "22" $1
 
     return $1
 
