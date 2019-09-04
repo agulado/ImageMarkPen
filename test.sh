@@ -23,7 +23,7 @@ echo "stage=$stage"
 
 echo
 function dealPath(){
-    echo "26:" $1;
+    echo "26:" $*;
 }
 if [[ $1 == "dealPath" ]]; then
     echo "29:" $*
