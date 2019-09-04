@@ -51,12 +51,9 @@ function dealPath(){
         echo "41 path=" $path
 
         ext_arr=(${path//./ })
-        typeset -l ext
-        ext=${ext_arr[$[ ${#ext_arr[@]}-1 ]]}
-        echo "50 ext=" $ext
 
-        file_type=${ext_view[@]} | grep -w $ext
-        echo "59 file_type=" $file_type
+        echo "56"
+        grep -iw ${ext_arr[$[ ${#ext_arr[@]}-1 ]]} ${ext_view[@]} | xargs
         echo
 
         _arr=(${path//\// })
