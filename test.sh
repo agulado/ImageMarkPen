@@ -23,7 +23,11 @@ echo "stage=$stage"
 
 echo
 function dealPath(){
-    echo "26:" $*;
+    arr=($*)
+    for path in ${arr[@]}
+    do
+        echo "29" $path
+    done
 }
 if [[ $1 == "dealPath" ]]; then
     echo "29:" $*
