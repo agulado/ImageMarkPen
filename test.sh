@@ -20,14 +20,11 @@ fi
 function combineDir(){
 
     arr=$1
-
     _arr=(${arr//\// })
-    _arr_max=$[ ${#_arr[@]}-1 ]
-    echo "26 _arr_max=" $_arr_max
     directory=""
     for i in ${!_arr[@]}
     do
-        if [[ $i < $_arr_max ]]; then
+        if [[ $i < $[ ${#_arr[@]}-1 ] ]]; then
             directory+="${_arr[i]}/"
         fi
     done
