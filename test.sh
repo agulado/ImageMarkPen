@@ -23,9 +23,9 @@ echo "stage=$stage"
 
 echo
 function dealPath(){
-    echo '26: $*';
+    echo '26: $1';
 }
-if [ $1 == "dealPath" ]; then
+if [[ $1 == "dealPath" ]]; then
     shift
     dealPath $*
     exit 0
