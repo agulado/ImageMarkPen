@@ -29,7 +29,11 @@ function dealPath(){
         echo $path
 
         _arr=(${path//\// })
-        echo $_arr
+        indent="-- "
+        for _path in ${_arr[@]}
+        do
+            echo indent $_path
+        done
     done
 }
 if [[ $1 == "dealPath" ]]; then
