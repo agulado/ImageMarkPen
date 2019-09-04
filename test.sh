@@ -1,6 +1,4 @@
 #!/bin/bash
-echo
-echo "--------- START ----------"
 
 branch=$GIT_BRANCH
 working_copy=$WORKSPACE
@@ -23,14 +21,17 @@ echo "stage=$stage"
 
 echo
 function dealPath(){
+
+    echo
+    echo "--------- COMMIT FILE_PATHS ----------"
+
     arr=($*)
     for path in ${arr[@]}
     do
-        echo "29" $path
+        echo $path
     done
 }
 if [[ $1 == "dealPath" ]]; then
-    echo "29:" $*
     shift
     dealPath $*
     exit 0
