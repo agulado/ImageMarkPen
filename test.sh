@@ -21,7 +21,9 @@ function combineDir(){
 
     echo "22: \$1=" $1
 
-    _arr=(${$1//\// })
+    arr=$1
+
+    _arr=(${arr//\// })
     directory="/"
     for i in ${!_arr[@]}
     do
