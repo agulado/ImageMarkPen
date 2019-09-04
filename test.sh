@@ -25,11 +25,11 @@ echo
 function dealPath(){
     echo '26: $*';
 }
-if [ "$1" == "dealPath" ]; then
+if [ $1 == "dealPath" ]; then
     shift
     dealPath $*
     exit 0
 fi
-git diff $GIT_COMMIT $GIT_PREVIOUS_COMMIT --name-only $1 | xargs dealPath
+git diff $GIT_COMMIT $GIT_PREVIOUS_COMMIT --name-only $1 | xargs $0 dealPath
 
 echo
