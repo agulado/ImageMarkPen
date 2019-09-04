@@ -17,6 +17,16 @@ else
     stage="test"
 fi
 
+function combineDir(){
+
+    directory="/"
+    for i in ${!$1[@]}
+    do
+        echo "28" $i
+    done
+    # directory+="/"
+}
+
 function dealPath(){
 
     echo
@@ -24,16 +34,21 @@ function dealPath(){
     echo "--------- COMMIT FILE_PATHS ----------"
 
     arr=($*)
+    directory_level=0
+    compile_arr=()
     for path in ${arr[@]}
     do
-        echo $path
+        echo "41 path=" $path
 
         _arr=(${path//\// })
-        indent="-- "
-        for _path in ${_arr[@]}
-        do
-            echo indent $_path
-        done
+
+        echo "45 _arr.length=" ${#_arr[@]}
+
+        if [ ${#_arr[@]} \< $directory_level -o $directory_level == 0 ];then
+            directory_level=${#_arr[@]}
+            compile_arr=(${combineDir $path})
+        fi
+
     done
 }
 if [[ $1 == "dealPath" ]]; then
