@@ -19,10 +19,10 @@ else
     stage="test"
 fi
 
-echo
 echo "stage=$stage"
 
 echo
-echo `git diff $GIT_COMMIT $GIT_PREVIOUS_COMMIT`
+diff_files=`git diff $GIT_COMMIT $GIT_PREVIOUS_COMMIT --name-only $1`
+echo diff_files
 
 echo
