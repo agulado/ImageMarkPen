@@ -79,9 +79,9 @@ function dealPath(){
 
         _arr=(${path//\// })
 
-        echo "82 _arr.length=" ${#_arr[@]}
         eval directory_level=\$directory_level_$file_type
-        echo "84 directory_level_"$file_type"=" $directory_level
+        echo "83 directory_level_"$file_type"=" $directory_level
+        echo "84 _arr.length=" ${#_arr[@]}
         
         # case $file_type in
         #     "view")
@@ -105,7 +105,7 @@ function dealPath(){
             eval directory_level_$file_type=${#_arr[@]}
             compile_dir=$(combineDir "$path")
             echo "59: compile_dir=" ${compile_dir}
-            compile_arr=($compile_dir)
+            eval compile_arr_$file_type=\(\$compile_dir\)
         fi
 
         echo "62: compile_arr=" ${compile_arr[@]}
