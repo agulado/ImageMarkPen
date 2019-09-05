@@ -4,7 +4,6 @@
         opt_init: init方法接收的参数,
         map_obj: map对象
     }
-    
 */
 function baidu_map() {
     return {
