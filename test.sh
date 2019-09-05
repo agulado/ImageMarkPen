@@ -87,8 +87,12 @@ function dealPath(){
 
         compile_dir=$(combineDir "$path")
         eval compile_arr=\${compile_arr_$file_type[@]}
-        if echo $compile_arr | grep -iw $compile_dir; then
-            continue
+        echo $compile_arr
+
+        if [[ $compile_arr != "" ]]; then
+            if echo $compile_arr | grep -iw $compile_dir; then
+                continue
+            fi
         fi
 
         if [[ compile_dir == "" ]]; then
