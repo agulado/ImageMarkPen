@@ -103,6 +103,7 @@ function dealPath(){
 
     done
 
+    echo ""
     echo
     echo --------- COMPILE PATHS ----------
     echo "js: " ${compile_arr_js[@]}
