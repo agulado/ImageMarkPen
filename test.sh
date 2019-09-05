@@ -3,7 +3,13 @@
 branch=$GIT_BRANCH
 working_copy=$WORKSPACE
 
-stage="hahaha"
+ignore_dir=("depends","components")
+image_dir=("images")
+ext_js=("js")
+ext_css=("css")
+ext_view=("html")
+
+stage="test"
 if [ "$branch" == "origin/master" ]
 then
     stage="test"
@@ -17,6 +23,7 @@ else
     stage="test"
 fi
 
+# 组织combine_dir
 function combineDir(){
 
     arr=$1
@@ -24,6 +31,10 @@ function combineDir(){
     directory=""
     for i in ${!_arr[@]}
     do
+        if echo "${ignore_dir[@]}" | grep -iw $p; then
+            continue
+        fi
+
         if [[ $i < $[ ${#_arr[@]}-1 ] ]]; then
             directory+="${_arr[i]}/"
         fi
@@ -40,18 +51,11 @@ function dealPath(){
 
     arr=($*)
     compile_arr=()
-    ext_js=("js")
-    ext_css=("css")
-    ext_img=("png","jpg","gif","svg")
-    ext_view=("html")
-    directory_level_js=0
-    directory_level_css=0
-    directory_level_img=0
-    directory_level_view=0
     compile_arr_js=()
     compile_arr_css=()
     compile_arr_img=()
     compile_arr_view=()
+
     for path in ${arr[@]}
     do
         echo
@@ -67,48 +71,28 @@ function dealPath(){
         elif echo "${ext_js[@]}" | grep -iw $ext; then
             file_type="js" 
         elif echo "${ext_css[@]}" | grep -iw $ext; then
-            file_type="css" 
-        elif echo "${ext_img[@]}" | grep -iw $ext; then
+            file_type="css"
+        elif echo "$image_dir" | grep -iw $path; then
             file_type="img" 
         else
             # 非指定文件类型则跳过
             continue
+        fi  
+
+        eval if [[ compile_arr_$file_type == ("") ]]; then
+            continue
         fi
 
-        echo $file_type
+        compile_dir=$(combineDir "$path")
+        echo "82: combineDir=" $compile_dir
 
-        _arr=(${path//\// })
-
-        eval directory_level=\$directory_level_$file_type
-        echo "83 directory_level_"$file_type"=" $directory_level
-        echo "84 _arr.length=" ${#_arr[@]}
-        
-        # case $file_type in
-        #     "view")
-        #         directory_level=$directory_level_view
-        #         ;;
-        #     "js")
-        #         directory_level=$directory_level_js
-        #         ;;
-        #     "css")
-        #         directory_level=$directory_level_css
-        #         ;;
-        #     "img")
-        #         directory_level=$directory_level_img
-        #         ;;
-        #     *)
-        #         directory_level=0
-        #         ;;
-        # esac
-
-        if [[ ${#_arr[@]} < $directory_level || $directory_level == 0 ]]; then
-            eval directory_level_$file_type=${#_arr[@]}
-            compile_dir=$(combineDir "$path")
-            echo "107: compile_dir=" ${compile_dir}
-            eval compile_arr_$file_type=\(\$compile_dir\)
+        if [[ compile_dir == "" ]]; then
+            eval compile_arr_$file_type=("")
+        else
+            eval compile_arr_$file_type+=($compile_dir)
         fi
 
-        eval echo "111: compile_arr_"$file_type"=" \${compile_arr_$file_type[@]}
+        eval echo "100: compile_arr_"$file_type"=" \${compile_arr_$file_type[@]}
 
     done
 }
