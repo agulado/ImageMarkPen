@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 branch=$GIT_BRANCH
 working_copy=$WORKSPACE
 
