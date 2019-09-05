@@ -80,9 +80,8 @@ function dealPath(){
         _arr=(${path//\// })
 
         echo "82 _arr.length=" ${#_arr[@]}
-        eval $("echo \$directory_level_"$file_type) 
-
-
+        eval echo \$directory_level_$file_type)
+        
         continue;
         
         # case $file_type in
