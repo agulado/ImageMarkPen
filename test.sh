@@ -26,17 +26,17 @@ fi
 # 组织combine_dir
 function combineDir(){
 
-    arr=$1
-    _arr=(${arr//\// })
+    path=$1
+    arr=(${path//\// })
     directory=""
-    for i in ${!_arr[@]}
+    for i in ${!arr[@]}
     do
-        if echo "${ignore_dir[@]}" | grep -iw $p; then
+        if echo "${ignore_dir[@]}" | grep -iw $path; then
             continue
         fi
 
-        if [[ $i < $[ ${#_arr[@]}-1 ] ]]; then
-            directory+="${_arr[i]}/"
+        if [[ $i < $[ ${#arr[@]}-1 ] ]]; then
+            directory+="${arr[i]}/"
         fi
     done
 
