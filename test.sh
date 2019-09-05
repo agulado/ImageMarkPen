@@ -104,11 +104,11 @@ function dealPath(){
         if [[ ${#_arr[@]} < $directory_level || $directory_level == 0 ]]; then
             eval directory_level_$file_type=${#_arr[@]}
             compile_dir=$(combineDir "$path")
-            echo "59: compile_dir=" ${compile_dir}
+            echo "107: compile_dir=" ${compile_dir}
             eval compile_arr_$file_type=\(\$compile_dir\)
         fi
 
-        echo "62: compile_arr=" ${compile_arr[@]}
+        eval echo "111: compile_arr=" \${compile_arr_$file_type[@]}
 
     done
 }
