@@ -79,7 +79,9 @@ function dealPath(){
             continue
         fi  
 
-        if [[ eval compile_arr_$file_type == ("") ]]; then
+        eval compile_dir_now=\${compile_arr_$file_type[@]}
+        eval compile_arr_length=\${\#compile_arr_$file_type[@]}
+        if [[ $compile_arr_length == 1 && $compile_dir_now == "" ]]; then
             continue
         fi
 
