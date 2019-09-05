@@ -79,7 +79,7 @@ function dealPath(){
             continue
         fi  
 
-        eval if [[ compile_arr_$file_type == ("") ]]; then
+        if [[ eval compile_arr_$file_type == ("") ]]; then
             continue
         fi
 
