@@ -101,9 +101,15 @@ function dealPath(){
             eval compile_arr_$file_type+=\($compile_dir\)
         fi
 
-        eval echo "100: compile_arr_"$file_type"=" \${compile_arr_$file_type[@]}
-
     done
+
+    echo
+    echo --------- COMPILE PATHS ----------
+    echo "js: " ${compile_arr_js[@]}
+    echo "css: " ${compile_arr_css[@]}
+    echo "img: " ${compile_arr_img[@]}
+    echo "view: " ${compile_arr_view[@]}
+    echo
 }
 if [[ $1 == "dealPath" ]]; then
     shift
