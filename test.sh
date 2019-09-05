@@ -108,7 +108,7 @@ function dealPath(){
             eval compile_arr_$file_type=\(\$compile_dir\)
         fi
 
-        eval echo "111: compile_arr=" \${compile_arr_$file_type[@]}
+        eval echo "111: compile_arr_"$file_type"=" \${compile_arr_$file_type[@]}
 
     done
 }
