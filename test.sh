@@ -81,7 +81,7 @@ function dealPath(){
 
         echo "82 _arr.length=" ${#_arr[@]}
         eval directory_level=\$directory_level_$file_type
-        echo "84 directory_level"$view_type"=" $directory_level
+        echo "84 directory_level_"$file_type"=" $directory_level
         
         # case $file_type in
         #     "view")
