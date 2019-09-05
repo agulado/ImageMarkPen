@@ -55,7 +55,7 @@ function dealPath(){
     for path in ${arr[@]}
     do
         echo
-        echo "41 path=" $path
+        echo "58 path=" $path
 
         # 获得文件类型
         ext_arr=(${path//./ })
